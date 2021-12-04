@@ -25,7 +25,7 @@ def main():
     if st.session_state.first_visit:
         # 在这里可以定义任意多个全局变量，方便程序进行调用
         st.session_state.date_time = datetime.datetime.now() + datetime.timedelta(hours=8) # Streamlit Cloud的时区是UTC，加8小时即北京时间
-        page = 0
+        st.session_state.page = 0
 
     d=st.sidebar.date_input('Date',st.session_state.date_time.date())
     t=st.sidebar.time_input('Time',st.session_state.date_time.time())
@@ -49,12 +49,12 @@ def main():
         st.empty()
         
     if page1:
-        page = 1
+        st.session_state.page = 1
     if page2:
-        page = 2
+        st.session_state.page = 2
     if page3:
-        page = 3
-    if page==1:
+        st.session_state.page = 3
+    if st.session_state.page == 1:
         st.info('测试菜单项')
         form = st.form(key='my-form')
         name = form.text_input('请输入您的名字')
@@ -69,7 +69,7 @@ def main():
         #t = st.time_input('Set an alarm for', datetime.time(8, 45))
         st.write('Alarm is set for', t)
     
-    if page == 2:
+    if st.session_state.page == 2:
         st.info("请欣赏雪山景色")
         #转换时间为时间戳，加8小时时差，再转换为时间元组
         ep = datetime.datetime(1970, 1, 1)
@@ -98,7 +98,7 @@ def main():
              st.write('Goodbye')
 
 
-    if page == 3:
+    if st.session_state.page == 3:
         st.info('点击播放按钮播放mp3音乐')
         with st.echo(code_location='below'):
             total_points = st.slider("Number of points in spiral", 1, 5000, 3000)
