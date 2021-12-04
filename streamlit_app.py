@@ -39,7 +39,7 @@ def main():
     
     #import streamlit as st
     
-    localtime = st.session_state.date_time
+    localtime = datetime.datetime.now() + datetime.timedelta(hours=8)
     #print "本地时间为 :", localtime
     #localtime = time.asctime(time.localtime(time.time()))
     hour = localtime.tm_hour
