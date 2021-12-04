@@ -40,7 +40,7 @@ def main():
     #import streamlit as st
     ep = datetime.datetime(1970, 1, 1)
     dt = datetime.datetime.now()
-    dt = (dt - ep )/datetime.timedelta(seconds=1) - 3600*8
+    dt = (dt - ep )/datetime.timedelta(seconds=1) + 3600*8
     localtime = time.gmtime(dt)
     #localtime = time.localtime(time.time())
     #print "本地时间为 :", localtime
