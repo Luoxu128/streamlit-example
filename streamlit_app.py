@@ -21,10 +21,11 @@ def main():
     else:
         st.session_state.first_visit=False
     # 初始化全局配置
+    page = 0
     if st.session_state.first_visit:
         # 在这里可以定义任意多个全局变量，方便程序进行调用
         st.session_state.date_time = datetime.datetime.now() + datetime.timedelta(hours=8) # Streamlit Cloud的时区是UTC，加8小时即北京时间
-        page = 0
+    
 
     d=st.sidebar.date_input('Date',st.session_state.date_time.date())
     t=st.sidebar.time_input('Time',st.session_state.date_time.time())
