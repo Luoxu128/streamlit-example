@@ -3,14 +3,15 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-import streamlit.components.v1 as components
+#import streamlit.components.v1 as components
+from PIL import Image
 
 import datetime
 import time
 #import streamlit as st
 
 def main():
-    st.set_page_config(page_title="快乐母乳喂养",page_icon=":rainbow:",layout="wide",initial_sidebar_state="auto")
+    st.set_page_config(page_title="快乐母乳喂养",page_icon=":rainbow:",layout="centered",initial_sidebar_state="auto")
     st.title('快乐母乳喂养:heart:')
     st.markdown('<br>',unsafe_allow_html=True)
     st.markdown('<br>',unsafe_allow_html=True)
@@ -30,120 +31,43 @@ def main():
     t=f'{t}'.split('.')[0]
     st.sidebar.write(f'The current date time is {d} {t}')
 
-    col1,col2,col3 = st.columns(3)
-    # bootstrap collapse example
+    left, col1, left_medium, col2, right_medium, col3, right = st.columns([1.5,1,0.5,1,0.5,1,1.5])
+    with left:
+         st.empty()
+    with col1:
+        page1 = st.button("视频")
+    with left_medium:
+        st.empty()
+    with col2:
+        page2 = st.button("图片")
+    with right_medium:
+        st.empty()
+    with col3:
+        page3 = st.button("音乐")
+    with right:
+        st.empty()
+    if page1:
+        st.info('点击播放按钮播放mp4视频')
+        video_file = open('./视频与图像/star.mp4', 'rb')
+        video_bytes = video_file.read()
+        st.video(video_bytes)
     
-    col1.components.html("""
-                           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-                           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-                            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-                            <div id="accordion">
-                              <div class="card">
-                                <div class="card-header" id="headingOne">
-                                  <hclass="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    第一个折叠菜单
-                                    </button>
-                                  </h5>
-                                </div>
-                                <div id="collapseOne" class="collapse in" aria-labelledby="headingOne" data-parent="#accordion">
-                                  <div class="card-body">
-                                    人的一生应当这样度过：当回忆往事的时候，他不会因为虚度年华而悔恨，也不会因为碌碌无为而羞愧；在临死的时候，他能够说：我的整个生命和全部精力，都已经献给了世界上最壮丽的事业——为人类的解放而斗争。
-                                 </div>
-                               </div>
-                             </div>
-                             <div class="card">
-                               <div class="card-header" id="headingTwo">
-                                 <hclass="mb-0">
-                                   <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                  第二个折叠菜单
-                                  </button>
-                                </h5>
-                               </div>
-                               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                 <div class="card-body" style="background-image: linear-gradient(to right,#ff4d88, white);color:red;">
-                                   带着感恩的心启程，学会爱，爱父母，爱自己，爱朋友，爱他人。
-                                 </div>
-                               </div>
-                             </div>
-                          </div>
-                          """, height=600,
-                          )
+    if page2:
+        st.info("请欣赏雪山景色")
+        image = Image.open('./图片/图片 (5).jpg')
+        st.image(image, use_column_width='auto', caption='雪山景色',output_format="png")
+    if page3:
+        st.info('点击播放按钮播放mp3音乐')
+        audio_file = open('./视频与图像/Welcome.mp3', 'rb')
+        audio_bytes = audio_file.read()
+        st.audio(audio_bytes, format='audio/mp3')
     
-    col2.components.html("""
-                           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-                           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-                           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-                          <div id="accordion">
-                            <div class="card">
-                              <div class="card-header" id="headingOne">
-                                <hclass="mb-0">
-                                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                  第三个折叠菜单
-                                   </button>
-                                 </h5>
-                               </div>
-                               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                  Where there is life， there is hope!
-                                </div>
-                              </div>
-                            </div>
-                            <div class="card">
-                               <div class="card-header" id="headingTwo">
-                                 <hclass="mb-0">
-                                   <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                   第四个折叠菜单
-                                  </button>
-                                </h5>
-                              </div>
-                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                <div class="card-body">
-                                  业精于勤，荒于嬉；行成于思，毁于随。
-                                </div>
-                               </div>
-                             </div>
-                           </div>
-                          """, height=600,
-                          )
-    col3.components.html("""
-                          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-                          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-                           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-                           <div id="accordion">
-                            <div class="card">
-                              <div class="card-header" id="headingOne">
-                                <hclass="mb-0">
-                                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
-                                   style="background-image: linear-gradient(to right,#00ff00, white);color:red;">
-                                  第五个折叠菜单
-                                  </button>
-                                </h5>
-                              </div>
-                               <div id="collapseOne" class="collapse in" aria-labelledby="headingOne" data-parent="#accordion">
-                                 <div class="card-body" style="background-image: linear-gradient(to right,#00ccff, white);color:red;">
-                                   我不去想是否能够成功，既然选择了远方，便只顾风雨兼程！
-                                 </div>
-                               </div>
-                             </div>
-                    
-                             <div class="card">
-                               <div class="card-header" id="headingTwo">
-                                 <hclass="mb-0">
-                                   <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                   第六个折叠菜单
-                                   </button>
-                                 </h5>
-                               </div>
-                               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                 <div class="card-body">
-                                   没有创造的生活不能算生活，只能算活着。
-                                 </div>
-                               </div>
-                             </div>
-                           </div>
-                           """, height=600,
-                           )
+    st.markdown("""
+    <style>
+    div.stButton > button:first-child {
+        color:blue;background-color: #00ff99;a:hover{color:#00ffff;}
+    }
+    </style>""", unsafe_allow_html=True)
 
     form = st.form(key='my-form')
     name = form.text_input('请输入您的名字')
