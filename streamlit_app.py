@@ -30,7 +30,7 @@ def main():
     t=f'{t}'.split('.')[0]
     st.sidebar.write(f'The current date time is {d} {t}')
 
-    col1, col2, col3=st.beta_columns(3)
+    col1,col2,col3 = st.columns(3)
     # bootstrap collapse example
     with col1:
        components.html(
