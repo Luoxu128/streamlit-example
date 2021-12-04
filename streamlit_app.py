@@ -4,6 +4,43 @@ import math
 import pandas as pd
 import streamlit as st
 
+import datetime
+#import streamlit as st
+form = st.form(key='my-form')
+name = form.text_input('请输入您的名字')
+submit = form.form_submit_button('提交')
+st.write('选择提交按钮后，你的名字将会显示在下方')
+if submit:
+    st.write(f'欢迎 {name}回来')
+
+d = st.date_input("When's your birthday", datetime.date(2019, 7, 6))
+st.write('Your birthday is:', d)
+
+t = st.time_input('Set an alarm for', datetime.time(8, 45))
+st.write('Alarm is set for', t)
+
+#import streamlit as st
+import time
+localtime = time.localtime(time.time())
+#print "本地时间为 :", localtime
+#localtime = time.asctime(time.localtime(time.time()))
+hour = localtime.tm_hour
+minute = localtime.tm_min
+hour = st.slider('hour', 0, 23, hour)
+minute = st.slider('minute', 0, 59, minute)
+st.write('Time is', hour, ':', minute)
+
+tic1 = time.perf_counter()
+#time.sleep(2)#(此行可以换成需要计时的模块)
+toc1 = time.perf_counter()
+shijian1 = int(toc1-tic1)
+st.write(shijian1)
+
+if st.button('Say hello'):
+     st.write('Why hello there')
+else:
+     st.write('Goodbye')
+
 
 """
 # Welcome to Streamlit!
