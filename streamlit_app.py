@@ -38,8 +38,11 @@ def main():
     st.write('Alarm is set for', t)
     
     #import streamlit as st
-    
-    localtime = time.localtime(time.time() + datetime.timedelta(hours=8))
+    ep = datetime.datetime(1970, 1, 1)
+    dt = datetime.datetime.now()
+    dt = (dt - ep )/datetime.timedelta(seconds=1) - 3600*8
+    localtime = time.gmtime(dt)
+    #localtime = time.localtime(time.time())
     #print "本地时间为 :", localtime
     #localtime = time.asctime(time.localtime(time.time()))
     hour = localtime.tm_hour
