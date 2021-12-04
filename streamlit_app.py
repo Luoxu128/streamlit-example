@@ -39,7 +39,7 @@ def main():
     d = st.date_input("When's your birthday", datetime.date(2019, 7, 6))
     st.write('Your birthday is:', d)
     
-    t = st.time_input('Set an alarm for', datetime.time(8, 45))
+    #t = st.time_input('Set an alarm for', datetime.time(8, 45))
     st.write('Alarm is set for', t)
     
     #转换时间为时间戳，加8小时时差，再转换为时间元组
