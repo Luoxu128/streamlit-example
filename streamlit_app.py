@@ -3,7 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-import streamlit.components.vas components
+import streamlit.components.v1 as components
 
 import datetime
 import time
