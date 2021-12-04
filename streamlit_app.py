@@ -53,7 +53,7 @@ def main():
         page = 2
     if page3:
         page = 3
-    if page == 1:
+    if page==1:
         st.info('测试菜单项')
         form = st.form(key='my-form')
         name = form.text_input('请输入您的名字')
