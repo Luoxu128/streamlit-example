@@ -31,7 +31,7 @@ def main():
     t=f'{t}'.split('.')[0]
     st.sidebar.write(f'The current date time is {d} {t}')
 
-    left, col1, left_medium, col2, right_medium, col3, right = st.columns([1.5,1,0.5,1,0.5,1,1.5])
+    left, col1, left_medium, col2, right_medium, col3, right = st.columns([0.5,0.5,0.5,0.5,0.5,0.5,0.5])
     with left:
          st.empty()
     with col1:
