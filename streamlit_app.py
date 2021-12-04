@@ -3,6 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+import streamlit.components.vas components
 
 import datetime
 import time
@@ -28,6 +29,128 @@ def main():
     t=st.sidebar.time_input('Time',st.session_state.date_time.time())
     t=f'{t}'.split('.')[0]
     st.sidebar.write(f'The current date time is {d} {t}')
+
+    col1, col2, col3=st.columns(3)
+    # bootstrap collapse example
+    with col1:
+       components.html(
+           """
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <div id="accordion">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <hclass="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    第一个折叠菜单
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseOne" class="collapse in" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                    人的一生应当这样度过：当回忆往事的时候，他不会因为虚度年华而悔恨，也不会因为碌碌无为而羞愧；在临死的时候，他能够说：我的整个生命和全部精力，都已经献给了世界上最壮丽的事业——为人类的解放而斗争。
+                 </div>
+               </div>
+             </div>
+             <div class="card">
+               <div class="card-header" id="headingTwo">
+                 <hclass="mb-0">
+                   <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  第二个折叠菜单
+                  </button>
+                </h5>
+               </div>
+               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                 <div class="card-body" style="background-image: linear-gradient(to right,#ff4d88, white);color:red;">
+                   带着感恩的心启程，学会爱，爱父母，爱自己，爱朋友，爱他人。
+                 </div>
+               </div>
+             </div>
+          </div>
+          """,
+          height=600,
+      )
+    with col2:
+       components.html(
+           """
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <hclass="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  第三个折叠菜单
+                   </button>
+                 </h5>
+               </div>
+               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                  Where there is life， there is hope!
+                </div>
+              </div>
+            </div>
+            <div class="card">
+               <div class="card-header" id="headingTwo">
+                 <hclass="mb-0">
+                   <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                   第四个折叠菜单
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                  业精于勤，荒于嬉；行成于思，毁于随。
+                </div>
+               </div>
+             </div>
+           </div>
+          """,
+          height=600,
+      )
+    with col3:
+      components.html(
+          """
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+           <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <hclass="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
+                   style="background-image: linear-gradient(to right,#00ff00, white);color:red;">
+                  第五个折叠菜单
+                  </button>
+                </h5>
+              </div>
+               <div id="collapseOne" class="collapse in" aria-labelledby="headingOne" data-parent="#accordion">
+                 <div class="card-body" style="background-image: linear-gradient(to right,#00ccff, white);color:red;">
+                   我不去想是否能够成功，既然选择了远方，便只顾风雨兼程！
+                 </div>
+               </div>
+             </div>
+    
+             <div class="card">
+               <div class="card-header" id="headingTwo">
+                 <hclass="mb-0">
+                   <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                   第六个折叠菜单
+                   </button>
+                 </h5>
+               </div>
+               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                 <div class="card-body">
+                   没有创造的生活不能算生活，只能算活着。
+                 </div>
+               </div>
+             </div>
+           </div>
+           """,
+           height=600,
+       )
 
     form = st.form(key='my-form')
     name = form.text_input('请输入您的名字')
