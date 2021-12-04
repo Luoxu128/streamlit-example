@@ -42,7 +42,7 @@ def main():
     t = st.time_input('Set an alarm for', datetime.time(8, 45))
     st.write('Alarm is set for', t)
     
-    #import streamlit as st
+    #转换时间为时间戳，加8小时时差，再转换为时间元组
     ep = datetime.datetime(1970, 1, 1)
     dt = datetime.datetime.now()
     dt = (dt - ep )/datetime.timedelta(seconds=1) + 3600*8
@@ -55,6 +55,7 @@ def main():
     hour = st.slider('hour', 0, 23, hour)
     minute = st.slider('minute', 0, 59, minute)
     st.write('Time is', hour, ':', minute)
+    st.write(f'当前时间为 {t}')
     
     tic1 = time.perf_counter()
     #time.sleep(2)#(此行可以换成需要计时的模块)
