@@ -67,8 +67,7 @@ def main():
                                </div>
                              </div>
                           </div>
-                          """,
-                          height=600,
+                          """, height=600,
                           )
     with col2:
        components.html(
