@@ -47,10 +47,19 @@ def main():
     with right:
         st.empty()
     if page1:
-        st.info('点击播放按钮播放mp4视频')
-        video_file = open('./视频与图像/star.mp4', 'rb')
-        video_bytes = video_file.read()
-        st.video(video_bytes)
+        st.info('测试菜单项')
+        form = st.form(key='my-form')
+        name = form.text_input('请输入您的名字')
+        submit = form.form_submit_button('提交')
+        st.write('选择提交按钮后，你的名字将会显示在下方')
+        if submit:
+            st.write(f'欢迎 {name}回来')
+    
+    d = st.date_input("When's your birthday", datetime.date(2019, 7, 6))
+    st.write('Your birthday is:', d)
+    
+    #t = st.time_input('Set an alarm for', datetime.time(8, 45))
+    st.write('Alarm is set for', t)
     
     if page2:
         st.info("请欣赏雪山景色")
@@ -69,18 +78,7 @@ def main():
     }
     </style>""", unsafe_allow_html=True)
 
-    form = st.form(key='my-form')
-    name = form.text_input('请输入您的名字')
-    submit = form.form_submit_button('提交')
-    st.write('选择提交按钮后，你的名字将会显示在下方')
-    if submit:
-        st.write(f'欢迎 {name}回来')
-    
-    d = st.date_input("When's your birthday", datetime.date(2019, 7, 6))
-    st.write('Your birthday is:', d)
-    
-    #t = st.time_input('Set an alarm for', datetime.time(8, 45))
-    st.write('Alarm is set for', t)
+
     
     #转换时间为时间戳，加8小时时差，再转换为时间元组
     ep = datetime.datetime(1970, 1, 1)
