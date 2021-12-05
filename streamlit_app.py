@@ -54,20 +54,20 @@ def main():
     st.markdown(tags_html, unsafe_allow_html=True)
     
     query_params = st.experimental_get_query_params()
-    tabs = ["首页", "图片", "音乐", "视频"]
-    if "tab" in query_params:
-        active_tab = query_params["tab"][0]
+    spans = ["首页", "图片", "音乐", "视频"]
+    if "span" in query_params:
+        active_span = query_params["span"][0]
     else:
-        active_tab = "首页"
+        active_span = "首页"
     
-    if active_tab not in tabs:
-        st.experimental_set_query_params(tab="首页")
-        active_tab = "首页"
+    if active_span not in spans:
+        st.experimental_set_query_params(span="首页")
+        active_span = "首页"
     
     li_items = "".join(
         f"""
         <li class="nav-item">
-            <a class="nav-link{' active' if t==active_tab else ''}" href="/?tab={t}">{t}</a>
+            <a class="nav-link{' active' if t==active_span else ''}" href="/?span={t}">{t}</a>
         </li>
         """
         for t in tabs
@@ -81,16 +81,16 @@ def main():
     st.markdown(tabs_html, unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
     
-    if active_tab == "首页":
+    if active_span == "首页":
         st.info("中国人自己的空间站时代来临了")
     
-    elif active_tab == "图片":
+    elif active_span == "图片":
         st.info("请欣赏雪山景色")
     
-    elif active_tab == "音乐":
+    elif active_span == "音乐":
         st.info('点击播放按钮播放mp3音乐')
     
-    elif active_tab == "视频":
+    elif active_span == "视频":
         st.info('点击播放按钮播放mp4视频')
     
     else:
