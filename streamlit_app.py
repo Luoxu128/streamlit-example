@@ -65,7 +65,7 @@ def main():
     with st.container():
         col1,col2,col3=st.columns([1,1,1])
         with col1:
-            a = col1.button('第一')
+            a = col1.image(f'img/img_1.jpg',caption='A test Picture',use_column_width=True)
         with col2:
             b = col2.button('第二')
         with col3:
