@@ -40,7 +40,7 @@ def tabs(default_tabs = [], default_active_tab=0):
 
 
 def main():
-    st.set_page_config(page_title="快乐母乳喂养",page_icon=":rainbow:",layout="centered",initial_sidebar_state="auto")
+    st.set_page_config(page_title="快乐母乳喂养",page_icon=":rainbow:",layout="wide",initial_sidebar_state="auto")
     st.title('快乐母乳喂养:heart:')
     st.markdown('<br>',unsafe_allow_html=True)
     st.markdown('<br>',unsafe_allow_html=True)
