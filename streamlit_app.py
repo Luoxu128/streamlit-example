@@ -32,9 +32,14 @@ def main():
     st.sidebar.write(f'The current date time is {d} {t}')
 
     st.markdown(
+        '<meta name="viewport" content="width=device-width, initial-scale=1" />', 
+        unsafe_allow_html=True,
+        )    
+
+    st.markdown(
         '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">',
         unsafe_allow_html=True,
-    )
+        )
 
 
     #横向菜单方案一
