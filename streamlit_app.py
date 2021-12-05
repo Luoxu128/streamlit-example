@@ -64,7 +64,7 @@ def main():
                 <div id="test_div">
                     <p>我是小P</p>
                     <ul class="nav nav-tabs">
-                        <li class="nav-item"><a class="nav-link">{page0 = st.button("首页")}</a></li>
+                        <li class="nav-item"><a class="nav-link">{(page0 = st.button("首页"))}</a></li>
                         <li class="nav-item">我是li2</li>
                         <li class="nav-item">我是li3</li>
                     </ul>
