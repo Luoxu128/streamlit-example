@@ -12,7 +12,7 @@ import time
 def main():
     # st.set_page_config(page_title="快乐母乳喂养",page_icon=":rainbow:",layout="wide",initial_sidebar_state="auto")
     st.set_page_config(page_title="快乐母乳喂养",page_icon=":rainbow:",initial_sidebar_state="auto")
-    st.title('快乐母乳喂养:heart:')
+    #st.title('快乐母乳喂养:heart:')
     #st.markdown('<br>',unsafe_allow_html=True)
     #st.markdown('<br>',unsafe_allow_html=True)
 
