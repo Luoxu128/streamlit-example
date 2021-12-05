@@ -42,9 +42,9 @@ def main():
         <span class="nav nav-tabs">
         <span>经济、金融类</span>
         <span>行政、人资类</span>
-        <span class="active">市场、销售类</span>
+        <span class="nav nav-tabs">市场、销售类</span>
         <span>电子工程IT类</span>
-        <span class="active">工程类</span>
+        <span class="nav nav-tabs">工程类</span>
         <span>生物医药类</span>
         <span>物理、化学类</span>
         <span>广告、传媒类</span>
