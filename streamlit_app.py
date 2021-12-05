@@ -70,7 +70,7 @@ def main():
             <a class="nav-link{' active' if t==active_span else ''}" href="/?span={t}">{t}</a>
         </li>
         """
-        for t in tabs
+        for t in spans
     )
     spans_html = f"""
         <ul class="nav nav-tabs">
