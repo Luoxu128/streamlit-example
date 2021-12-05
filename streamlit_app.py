@@ -57,20 +57,33 @@ def main():
 
 
     #横向菜单方案一
-    spans_html = f"""
-        <span class="nav nav-tabs">
-        <span>经济、金融类</span>
-        <span>行政、人资类</span>
-        <span class="nav nav-tabs">市场、销售类</span>
-        <span>电子工程IT类</span>
-        <span class="nav nav-tabs">工程类</span>
-        <span>生物医药类</span>
-        <span>物理、化学类</span>
-        <span>广告、传媒类</span>
-        <span>语言、翻译类</span>
-        </span>
-    """
-    st.markdown(spans_html, unsafe_allow_html=True)
+    test_html = f"""
+        <html>
+            <head>
+                <title>div样式</title>
+                <meta charset = "utf-8">
+                <!-- 使用CSS样式来改变div的属性 -->
+                <style type="text/css">
+                    div#test_div{
+                        color: red;
+                    }
+                </style>
+            </head>
+            <body>
+                <!-- 只要是在div中的属性，全部都被改了 -->
+                <div id="test_div">
+                    <p>我是小P</p>
+                    <ol>
+                        <li>我是li，我和我的兄弟们代表列表</li>
+                        <li>我是li，我和我的兄弟们代表列表</li>
+                        <li>我是li，我和我的兄弟们代表列表</li>
+                    </ol>
+                    <h3>我是h3，说h1太大了，让我来充数</h3>
+                </div>
+                
+            </body>
+        </html>    """
+    st.markdown(test_html, unsafe_allow_html=True)
     
     query_params = st.experimental_get_query_params()
     tabs = ["首页", "图片", "音乐", "视频"]
