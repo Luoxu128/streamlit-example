@@ -81,16 +81,16 @@ def main():
     st.markdown(spans_html, unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
     
-    if active_span == "首页":
+    if active_tab == "首页":
         st.info("中国人自己的空间站时代来临了")
     
-    elif active_span == "图片":
+    elif active_tab == "图片":
         st.info("请欣赏雪山景色")
     
-    elif active_span == "音乐":
+    elif active_tab == "音乐":
         st.info('点击播放按钮播放mp3音乐')
     
-    elif active_span == "视频":
+    elif active_tab == "视频":
         st.info('点击播放按钮播放mp4视频')
     
     else:
