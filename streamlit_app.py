@@ -107,9 +107,9 @@ def main():
                 <div id="test_div">
                     <p>我是小P</p>
                     <ul class="nav nav-tabs">
-                        <li class="nav-item"><a class="nav-link">{st.button("首页")}</a></li>
-                        <li class="nav-item">{st.button("睡眠")}</li>
-                        <li class="nav-item">我是li3</li>
+                        <li class="nav-item"><a class="nav-link">{a}</a></li>
+                        <li class="nav-item">{b}</li>
+                        <li class="nav-item">{c}</li>
                     </ul>
                     <h3>我是h3，说h1太大了，让我来充数</h3>
                 </div>
