@@ -87,8 +87,8 @@ def main():
 
     #测试tab
     
-    active_tab = tabs(["Tab 1", "Tab 2", "Tab 3"])
-    st.write(active_tab)
+    # active_tab = tabs(["Tab 1", "Tab 2", "Tab 3"])
+    # st.write(active_tab)
 
 
     #横向菜单方案一
