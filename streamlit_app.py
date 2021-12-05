@@ -63,7 +63,7 @@ def main():
     # st.sidebar.write(f'The current date time is {d} {t}')
     
     with st.container():
-        col1,col2,col3=st.columns(3)
+        col1,col2,col3=st.columns([1,1,1])
         with col1:
             a = col1.button('第一')
         with col2:
