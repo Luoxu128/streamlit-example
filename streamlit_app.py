@@ -62,9 +62,9 @@ def main():
                 <div id="test_div">
                     <p>我是小P</p>
                     <ol>
-                        <li>我是li，我和我的兄弟们代表列表</li>
-                        <li>我是li，我和我的兄弟们代表列表</li>
-                        <li>我是li，我和我的兄弟们代表列表</li>
+                        <li class="nav-item">我是li，我和我的兄弟们代表列表</li>
+                        <li class="nav-item">我是li，我和我的兄弟们代表列表</li>
+                        <li class="nav-item">我是li，我和我的兄弟们代表列表</li>
                     </ol>
                     <h3>我是h3，说h1太大了，让我来充数</h3>
                 </div>
