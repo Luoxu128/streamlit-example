@@ -61,9 +61,11 @@ def main():
         <html>
                 <div id="test_div">
                     <p>我是小P</p>
-                    <li class="nav-item"><a class="nav-link">我是li1</a></li>
-                    <li class="nav-item">我是li2</li>
-                    <li class="nav-item">我是li3</li>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item"><a class="nav-link">我是li1</a></li>
+                        <li class="nav-item">我是li2</li>
+                        <li class="nav-item">我是li3</li>
+                    </ul>
                     <h3>我是h3，说h1太大了，让我来充数</h3>
                 </div>
                 
