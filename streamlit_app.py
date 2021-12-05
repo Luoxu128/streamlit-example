@@ -45,7 +45,6 @@ def main():
         <span>语言、翻译类</span>
         </span>
         .tags span {
-              font: 12px/22px 'Microsoft Yahei',Arial,Lucida Grande,Tahoma;
               border: 1px #E3E0D9 solid;
               display: inline-block;
               height: 20px;
