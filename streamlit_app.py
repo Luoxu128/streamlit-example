@@ -28,7 +28,7 @@ def main():
 
     # d=st.sidebar.date_input('Date',st.session_state.date_time.date())
     # t=st.sidebar.time_input('Time',st.session_state.date_time.time())
-    # t=f'{t}'.split('.')[0]
+    t=f'{st.session_state.date_time.time()}'.split('.')[0]
     # st.sidebar.write(f'The current date time is {d} {t}')
 
     st.markdown(""" <style>
