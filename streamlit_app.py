@@ -62,7 +62,7 @@ def main():
                 <div id="test_div">
                     <p>我是小P</p>
                     <ol>
-                        <li class="nav-item">我是li，我和我的兄弟们代表列表</li>
+                        <li class="nav-item"><a class="nav-link">我是li，我和我的兄弟们代表列表</a></li>
                         <li class="nav-item">我是li，我和我的兄弟们代表列表</li>
                         <li class="nav-item">我是li，我和我的兄弟们代表列表</li>
                     </ol>
