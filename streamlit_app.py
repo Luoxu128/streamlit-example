@@ -3,7 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-#import streamlit.components.v1 as components
+import streamlit.components.v1 as components
 from PIL import Image
 
 import datetime
@@ -56,6 +56,20 @@ def main():
         st.session_state.page = 3
     if st.session_state.page == 1:
         st.info('测试菜单项')
+
+        html_string = '''
+        <h1>HTML string in RED</h1>
+        
+        <script language="javascript">
+          document.querySelector("h1").style.color = "red";
+          console.log("Streamlit runs JavaScript");
+          alert("Streamlit runs JavaScript");
+        </script>
+        '''
+        components.html(html_string)  # JavaScript works
+
+        st.markdown(html_string, unsafe_allow_html=True)  # JavaScript doesn't work
+    
         form = st.form(key='my-form')
         name = form.text_input('请输入您的名字')
         submit = form.form_submit_button('提交')
