@@ -65,7 +65,7 @@ def main():
                     <p>我是小P</p>
                     <ul class="nav nav-tabs">
                         <li class="nav-item"><a class="nav-link">{st.button("首页")}</a></li>
-                        <li class="nav-item">我是li2</li>
+                        <li class="nav-item">{st.button("睡眠")}</li>
                         <li class="nav-item">我是li3</li>
                     </ul>
                     <h3>我是h3，说h1太大了，让我来充数</h3>
