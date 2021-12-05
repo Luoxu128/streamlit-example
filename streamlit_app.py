@@ -99,7 +99,7 @@ def main():
         {li_items}
         </ul>
     """
-    
+    components.html(tabs_html)
     st.markdown(tabs_html, unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
     
