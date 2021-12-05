@@ -54,23 +54,23 @@ def main():
     st.markdown(spans_html, unsafe_allow_html=True)
     
     query_params = st.experimental_get_query_params()
-    spans = ["首页", "图片", "音乐", "视频"]
-    if "span" in query_params:
-        active_span = query_params["span"][0]
+    tabs = ["首页", "图片", "音乐", "视频"]
+    if "tab" in query_params:
+        active_tab = query_params["tab"][0]
     else:
-        active_span = "首页"
+        active_tab = "首页"
     
-    if active_span not in spans:
-        st.experimental_set_query_params(span="首页")
-        active_span = "首页"
+    if active_tab not in tabs:
+        st.experimental_set_query_params(tab="首页")
+        active_tab = "首页"
     
     li_items = "".join(
         f"""
         <li class="nav-item">
-            <a class="nav-link{' active' if t==active_span else ''}" href="/?span={t}">{t}</a>
+            <a class="nav-link{' active' if t==active_tab else ''}" href="/?tab={t}">{t}</a>
         </li>
         """
-        for t in spans
+        for t in tabs
     )
     spans_html = f"""
         <ul class="nav nav-tabs">
