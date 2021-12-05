@@ -221,12 +221,12 @@ def main():
                 .encode(x='x:Q', y='y:Q'))
     
 
-    st.markdown("""
-    <style>
-    div.stButton > button:first-child {
-        color:blue;background-color: #00ff99;a:hover{color:#00ffff;}
-    }
-    </style>""", unsafe_allow_html=True)
+    # st.markdown("""
+    # <style>
+    # div.stButton > button:first-child {
+    #     color:blue;background-color: #00ff99;a:hover{color:#00ffff;}
+    # }
+    # </style>""", unsafe_allow_html=True)
 
     
     """
