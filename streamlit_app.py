@@ -38,7 +38,7 @@ def main():
 
 
     #横向菜单方案一
-    tags_html = f"""
+    spans_html = f"""
         <span class="nav nav-tabs">
         <span>经济、金融类</span>
         <span>行政、人资类</span>
@@ -51,7 +51,7 @@ def main():
         <span>语言、翻译类</span>
         </span>
     """
-    st.markdown(tags_html, unsafe_allow_html=True)
+    st.markdown(spans_html, unsafe_allow_html=True)
     
     query_params = st.experimental_get_query_params()
     spans = ["首页", "图片", "音乐", "视频"]
@@ -72,13 +72,13 @@ def main():
         """
         for t in tabs
     )
-    tabs_html = f"""
+    spans_html = f"""
         <ul class="nav nav-tabs">
         {li_items}
         </ul>
     """
     
-    st.markdown(tabs_html, unsafe_allow_html=True)
+    st.markdown(spans_html, unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
     
     if active_span == "首页":
