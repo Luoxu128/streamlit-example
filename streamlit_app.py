@@ -116,22 +116,22 @@ def main():
         st.error("出错了。")
     #横向菜单方案一结束    
     
-
-    left, col1, left_medium, col2, right_medium, col3, right = st.columns([0.1,1,0.1,1,0.1,1,0.1])
-    with left:
-         st.empty()
+    col1, col2, col3 = st.columns(3)
+    #left, col1, left_medium, col2, right_medium, col3, right = st.columns([0.1,1,0.1,1,0.1,1,0.1])
+    # with left:
+    #      st.empty()
     with col1:
         page1 = st.button("视频")
-    with left_medium:
-        st.empty()
+    # with left_medium:
+    #     st.empty()
     with col2:
         page2 = st.button("图片")
-    with right_medium:
-        st.empty()
+    # with right_medium:
+    #     st.empty()
     with col3:
         page3 = st.button("音乐")
-    with right:
-        st.empty()
+    # with right:
+    #     st.empty()
         
     if page1:
         st.session_state.page = 1
