@@ -9,6 +9,36 @@ from PIL import Image
 import datetime
 import time
 
+def tabs(default_tabs = [], default_active_tab=0):
+        if not default_tabs:
+            return None
+        active_tab = st.radio("", default_tabs, index=default_active_tab)
+        child = default_tabs.index(active_tab)+1
+        st.markdown("""  
+            <style type="text/css">
+            div[role=radiogroup] > label > div:first-of-type {
+               display: none
+            }
+            div[role=radiogroup] {
+                flex-direction: unset
+            }
+            div[role=radiogroup] label {             
+                border: 1px solid #999;
+                background: #EEE;
+                padding: 4px 12px;
+                border-radius: 4px 4px 0 0;
+                position: relative;
+                top: 1px;
+                }
+            div[role=radiogroup] label:nth-child(""" + str(child) + """) {    
+                background: #FFF !important;
+                border-bottom: 1px solid transparent;
+            }            
+            </style>
+        """,unsafe_allow_html=True)        
+        return active_tab
+
+
 def main():
     st.set_page_config(page_title="快乐母乳喂养",page_icon=":rainbow:",layout="centered",initial_sidebar_state="auto")
     st.title('快乐母乳喂养:heart:')
@@ -246,34 +276,6 @@ def main():
     In the meantime, below is an example of what you can do with just a few lines of code:
     """
     
-def tabs(default_tabs = [], default_active_tab=0):
-        if not default_tabs:
-            return None
-        active_tab = st.radio("", default_tabs, index=default_active_tab)
-        child = default_tabs.index(active_tab)+1
-        st.markdown("""  
-            <style type="text/css">
-            div[role=radiogroup] > label > div:first-of-type {
-               display: none
-            }
-            div[role=radiogroup] {
-                flex-direction: unset
-            }
-            div[role=radiogroup] label {             
-                border: 1px solid #999;
-                background: #EEE;
-                padding: 4px 12px;
-                border-radius: 4px 4px 0 0;
-                position: relative;
-                top: 1px;
-                }
-            div[role=radiogroup] label:nth-child(""" + str(child) + """) {    
-                background: #FFF !important;
-                border-bottom: 1px solid transparent;
-            }            
-            </style>
-        """,unsafe_allow_html=True)        
-        return active_tab
    
 
 if __name__ == '__main__':
