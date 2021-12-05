@@ -65,11 +65,11 @@ def main():
     with st.container():
         col1,col2,col3=st.columns(3)
         with col1:
-            a = st.button('第一')
+            a = col1.button('第一')
         with col2:
-            b = st.button('第二')
+            b = col2.button('第二')
         with col3:
-            c = st.button('第三')
+            c = col3.button('第三')
     
     st.markdown(""" <style>
         #MainMenu {visibility: hidden;}
