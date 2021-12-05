@@ -60,7 +60,16 @@ def main():
     # t=st.sidebar.time_input('Time',st.session_state.date_time.time())
     t=f'{st.session_state.date_time.time()}'.split('.')[0]
     # st.sidebar.write(f'The current date time is {d} {t}')
-
+    
+    with st.container():
+        col1,col2,col3=columns(3)
+        with col1:
+            a = st.button('第一')
+        with col2:
+            b = st.button('第二')
+        with col3:
+            c = st.button('第三')
+    
     st.markdown(""" <style>
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
