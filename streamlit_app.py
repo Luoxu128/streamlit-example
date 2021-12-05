@@ -31,9 +31,15 @@ def main():
     t=f'{t}'.split('.')[0]
     st.sidebar.write(f'The current date time is {d} {t}')
 
+    st.markdown(
+        '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">',
+        unsafe_allow_html=True,
+    )
+
+
     #横向菜单方案一
     tags_html = f"""
-        <span class="tags">
+        <span class="nav-item">
         <span>经济、金融类</span>
         <span>行政、人资类</span>
         <span class="active">市场、销售类</span>
@@ -44,35 +50,9 @@ def main():
         <span>广告、传媒类</span>
         <span>语言、翻译类</span>
         </span>
-        .tags span {
-              border: 1px #E3E0D9 solid;
-              display: inline-block;
-              height: 20px;
-              background: #FFF;
-              text-align: center;
-              padding: 2px 7px;
-              margin: 1px 4px;
-              cursor: pointer;
-              -webkit-transition: all .3s ease-in-out;
-              -moz-transition: all .3s ease-in-out;
-              overflow: hidden;
-              color: #989898;
-            }
-            .tags span:hover {
-              border-color: #00956d;
-            }
-            .tags span.active {
-              color: #FFF;
-              border-color: #00956d;
-              background-color: #00956d;
-            }
     """
     st.markdown(tags_html, unsafe_allow_html=True)
     
-    st.markdown(
-        '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">',
-        unsafe_allow_html=True,
-    )
     query_params = st.experimental_get_query_params()
     tabs = ["首页", "图片", "音乐", "视频"]
     if "tab" in query_params:
