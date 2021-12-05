@@ -119,15 +119,15 @@ def main():
 
     left, col1, left_medium, col2, right_medium, col3, right = st.columns([0.1,1,0.1,1,0.1,1,0.1])
     with left:
-         #st.empty()
+         st.empty()
     with col1:
         page1 = st.button("视频")
     with left_medium:
-        #st.empty()
+        st.empty()
     with col2:
         page2 = st.button("图片")
     with right_medium:
-        #st.empty()
+        st.empty()
     with col3:
         page3 = st.button("音乐")
     with right:
