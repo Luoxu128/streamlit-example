@@ -8,7 +8,6 @@ from PIL import Image
 
 import datetime
 import time
-#import streamlit as st
 
 def main():
     st.set_page_config(page_title="快乐母乳喂养",page_icon=":rainbow:",layout="centered",initial_sidebar_state="auto")
@@ -31,6 +30,56 @@ def main():
     t=st.sidebar.time_input('Time',st.session_state.date_time.time())
     t=f'{t}'.split('.')[0]
     st.sidebar.write(f'The current date time is {d} {t}')
+
+    #横向菜单方案一
+    st.markdown(
+        '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">',
+        unsafe_allow_html=True,
+    )
+    query_params = st.experimental_get_query_params()
+    tabs = ["首页", "图片", "音乐", "视频"]
+    if "tab" in query_params:
+        active_tab = query_params["tab"][0]
+    else:
+        active_tab = "首页"
+    
+    if active_tab not in tabs:
+        st.experimental_set_query_params(tab="首页")
+        active_tab = "首页"
+    
+    li_items = "".join(
+        f"""
+        <li class="nav-item">
+            <a class="nav-link{' active' if t==active_tab else ''}" href="/?tab={t}">{t}</a>
+        </li>
+        """
+        for t in tabs
+    )
+    tabs_html = f"""
+        <ul class="nav nav-tabs">
+        {li_items}
+        </ul>
+    """
+    
+    st.markdown(tabs_html, unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    if active_tab == "首页":
+        st.info("中国人自己的空间站时代来临了")
+    
+    elif active_tab == "图片":
+        st.info("请欣赏雪山景色")
+    
+    elif active_tab == "音乐":
+        st.info('点击播放按钮播放mp3音乐')
+    
+    elif active_tab == "视频":
+        st.info('点击播放按钮播放mp4视频')
+    
+    else:
+        st.error("出错了。")
+    #横向菜单方案一结束    
+    
 
     left, col1, left_medium, col2, right_medium, col3, right = st.columns([0.1,1,0.1,1,0.1,1,0.1])
     with left:
@@ -143,9 +192,6 @@ def main():
     }
     </style>""", unsafe_allow_html=True)
 
-
-    
-    
     
     """
     # Welcome to Streamlit!
