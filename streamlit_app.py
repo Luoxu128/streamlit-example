@@ -59,18 +59,6 @@ def main():
     #横向菜单方案一
     test_html = f"""
         <html>
-            <head>
-                <title>div样式</title>
-                <meta charset = "utf-8">
-                <!-- 使用CSS样式来改变div的属性 -->
-                <style type="text/css">
-                    div#test_div{
-                        color: red;
-                    }
-                </style>
-            </head>
-            <body>
-                <!-- 只要是在div中的属性，全部都被改了 -->
                 <div id="test_div">
                     <p>我是小P</p>
                     <ol>
@@ -81,8 +69,8 @@ def main():
                     <h3>我是h3，说h1太大了，让我来充数</h3>
                 </div>
                 
-            </body>
         </html>    """
+
     st.markdown(test_html, unsafe_allow_html=True)
     
     query_params = st.experimental_get_query_params()
