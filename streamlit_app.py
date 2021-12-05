@@ -117,7 +117,7 @@ def main():
     #横向菜单方案一结束    
     
 
-   col1, col2, col3 = st.columns(3)
+   col1,col2,col3=st.columns(3)
     with col1:
         page1 = st.button("视频")
     with col2:
