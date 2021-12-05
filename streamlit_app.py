@@ -65,11 +65,11 @@ def main():
     with st.container():
         col1,col2,col3=st.columns([1,1,1])
         with col1:
-            a = col1.image(f'img/img_1.jpg',caption='A test Picture',use_column_width=True)
+            a = col1.image(f'img/img_1.jpg',caption='Picture 1',use_column_width=True)
         with col2:
-            b = col2.button('第二')
+            b = col2.image(f'img/img_2.jpg',caption='Picture 2',use_column_width=True)
         with col3:
-            c = col3.button('第三')
+            c = col3.image(f'img/img_3.jpg',caption='Picture 3',use_column_width=True)
     
     st.markdown(""" <style>
         #MainMenu {visibility: hidden;}
