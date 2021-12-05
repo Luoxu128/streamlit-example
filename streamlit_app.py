@@ -63,7 +63,7 @@ def main():
     # st.sidebar.write(f'The current date time is {d} {t}')
     
     with st.container():
-        col1,col2,col3=st.columns([1,1,1])
+        col1,col2,col3=st.columns(3)
         with col1:
             a = col1.image(f'img/img_1.jpg',caption='Picture 1',use_column_width=True)
         with col2:
