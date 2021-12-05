@@ -39,7 +39,7 @@ def main():
 
     #横向菜单方案一
     tags_html = f"""
-        <span class="nav-item">
+        <span class="nav nav-tabs">
         <span>经济、金融类</span>
         <span>行政、人资类</span>
         <span class="active">市场、销售类</span>
