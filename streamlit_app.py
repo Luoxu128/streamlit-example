@@ -72,7 +72,7 @@ def main():
                 </div>
                 
         </html>    """
-
+    components.html(test_html)
     st.markdown(test_html, unsafe_allow_html=True)
     
     query_params = st.experimental_get_query_params()
