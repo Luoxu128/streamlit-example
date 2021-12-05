@@ -77,13 +77,13 @@ def main():
         """
         for t in tabs
     )
-    spans_html = f"""
+    tabs_html = f"""
         <ul class="nav nav-tabs">
         {li_items}
         </ul>
     """
     
-    st.markdown(spans_html, unsafe_allow_html=True)
+    st.markdown(tabs_html, unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
     
     if active_tab == "首页":
