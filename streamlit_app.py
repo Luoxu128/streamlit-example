@@ -31,6 +31,11 @@ def main():
     t=f'{t}'.split('.')[0]
     st.sidebar.write(f'The current date time is {d} {t}')
 
+    st.markdown(""" <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        </style> """, unsafe_allow_html=True)
+
     st.markdown(
         '<meta name="viewport" content="width=device-width, initial-scale=1" />', 
         unsafe_allow_html=True,
