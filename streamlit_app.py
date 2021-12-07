@@ -5,9 +5,70 @@ import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
 from PIL import Image
+import pymysql
+import bcrypt
 
 import datetime
 import time
+
+def create_usertable():
+     #c.execute('CREATE TABLE IF NOT EXISTS userstable(ID INTEGER auto_increment not null primary key, username TEXT, password TEXT)')
+     c.callproc('create_userstable')
+ 
+def add_userdata(username, password):
+ 
+     hashAndSalt = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
+     result = 0
+     r1 = c.callproc('user_check',args=(username, result))
+     r2 = c.execute("select @_user_check_1")
+     result = c.fetchall()
+     result = result[0][0]
+
+     if result:
+         st.warning("用户名已存在，请更换一个新的用户名。")
+     else:
+         #c.execute('INSERT INTO userstable(username,password) VALUES(%s,%s)',(username,password))
+         #con.commit()
+         result_1 = 0
+         r_1 = c.callproc('add_user',args=(username, hashAndSalt, result_1))
+         con.commit()
+         r_2 = c.execute("select @_add_user_2")
+         result_1 = c.fetchall()
+         result_1 = result_1[0][0]
+         if result_1:
+             st.success("恭喜，您已成功注册。{}".format(result_1))
+             st.info("请在左侧选择“登录”选项进行登录。")
+         else:
+             st.warning("出现未知错误，未注册成功，请重试或联系管理员！")
+ 
+def login_user(username,password):
+     #if c.execute('SELECT username FROM userstable WHERE username = %s',(username)):
+         #c.execute('SELECT * FROM userstable WHERE username = %s AND password = %s',(username,password))
+         #user_id = c.var(log_result.INTEGER)#存储过程返回值
+         #c.callproc('login_user',[username,password,user_id])
+         #c.execute('call login_user(%s,%s,@log_result)',(username,password))
+         #data, result = callpro_sql('login_user', [1], username,password)
+         result = 0
+         u_id = 0
+         hashAndSalt = ''
+         r1 = c.callproc('login_user',args=(username,password,result))
+         r2 = c.execute("select @_login_user_1, @_login_user_2")
+         result = c.fetchall()
+         u_id = result[0][1]
+         if u_id > 0:
+             result = result[0][0]
+             result = result.encode('utf8')
+             valid = bcrypt.checkpw(password.encode(), result)
+             if valid:
+                 return u_id
+             else:
+                 st.warning("用户名或密码错误，请从新输入或联系管理员！" )
+         else:
+             st.warning("用户名或密码错误，请从新输入或联系管理员！" )
+             
+         #return data
+     #else:
+         #st.warning("用户名不存在，请先选择注册按钮完成注册。", )
 
 def main():
     # st.set_page_config(page_title="快乐母乳喂养",page_icon=":rainbow:",layout="wide",initial_sidebar_state="auto")
@@ -26,7 +87,9 @@ def main():
         # 在这里可以定义任意多个全局变量，方便程序进行调用
         st.session_state.date_time = datetime.datetime.now() + datetime.timedelta(hours=8) # Streamlit Cloud的时区是UTC，加8小时即北京时间
         st.session_state.page = 0
-
+        con = pymysql.connect(host="sql.j104.vhostgo.com", user="promiseway", password="52582939", database="promiseway", charset="utf8")
+        c = con.cursor()
+        
     # d=st.sidebar.date_input('Date',st.session_state.date_time.date())
     # t=st.sidebar.time_input('Time',st.session_state.date_time.time())
     t=f'{st.session_state.date_time.time()}'.split('.')[0]
@@ -58,6 +121,88 @@ def main():
         unsafe_allow_html=True,
         )
 
+# =============================================================================
+# 登录管理开始
+# =============================================================================
+     menu = ["首页","登录","注册", "注销"]
+ 
+     if 'count' not in st.session_state:
+         st.session_state.count = 0
+ 
+     choice = st.sidebar.selectbox("选项",menu)
+     st.sidebar.markdown(
+     """
+     <style>
+     [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
+         width: 250px;
+     }
+     [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
+         width: 250px;
+         margin-left: -250px;
+     }
+     </style>
+     """,
+     unsafe_allow_html=True,)
+ 
+     if choice =="首页":
+         st.subheader("首页")
+         st.markdown('''Streamlit文档的地址是：https://docs.streamlit.io/''')
+         c1, c2 = st.columns(2)
+         with c1:
+             st.success('''Streamlit中文公众号名称是：Streamlit, 公众号二维码如下''')
+             st.image("img1.png")
+         with c2:
+             st.success('''Streamlit中文交流群二维码如下''')
+             st.image("img2.png")
+ 
+     elif choice =="登录":
+         st.sidebar.subheader("登录区域")
+ 
+         username = st.sidebar.text_input("用户名")
+         password = st.sidebar.text_input("密码",type = "password")
+         if st.sidebar.checkbox("开始登录"):
+             create_usertable()
+             logged_user = login_user(username,password)
+             if logged_user:
+ 
+                 st.session_state.count += 1
+ 
+                 if st.session_state.count >= 1:
+ 
+                     st.sidebar.success("您已登录成功，您的用户名是 {}".format(username))
+ 
+                     st.title("成功登录后可以看到的内容{}".format(logged_user))
+                     st.balloons()
+                     st.markdown(logged_user)
+                     c1, c2 = st.columns(2)
+                     with c1:
+                         st.success('''Streamlit中文公众号名称是：Streamlit, 公众号二维码如下''')
+                         st.image("img1.png")
+                     with c2:
+                         st.success('''Streamlit中文交流群二维码如下''')
+                         st.image("img2.png")
+ 
+             else:
+                 st.sidebar.warning('用户名或密码错误，请重新输入！')
+                 #st.sidebar.warning(data)
+ 
+     elif choice =="注册":
+        st.subheader("注册")
+        new_user = st.sidebar.text_input("用户名")
+        new_password = st.sidebar.text_input("密码",type = "password")
+
+        if st.sidebar.button("注册"):
+            create_usertable()
+            add_userdata(new_user,new_password)
+
+     elif choice =="注销":
+        st.session_state.count = 0
+        if st.session_state.count == 0:
+            st.info("您已成功注销，如果需要，请选择左侧的登录按钮继续登录。")
+
+# =============================================================================
+# 登录管理结束
+# =============================================================================
     
     col1, col2, col3 = st.columns(3)
     #left, col1, left_medium, col2, right_medium, col3, right = st.columns([0.1,1,0.1,1,0.1,1,0.1])
