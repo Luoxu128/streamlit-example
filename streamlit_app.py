@@ -124,81 +124,81 @@ def main():
 # =============================================================================
 # 登录管理开始
 # =============================================================================
-     menu = ["首页","登录","注册", "注销"]
- 
-     if 'count' not in st.session_state:
-         st.session_state.count = 0
- 
-     choice = st.sidebar.selectbox("选项",menu)
-     st.sidebar.markdown(
-     """
-     <style>
-     [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
-         width: 250px;
-     }
-     [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
-         width: 250px;
-         margin-left: -250px;
-     }
-     </style>
-     """,
-     unsafe_allow_html=True,)
- 
-     if choice =="首页":
-         st.subheader("首页")
-         st.markdown('''Streamlit文档的地址是：https://docs.streamlit.io/''')
-         c1, c2 = st.columns(2)
-         with c1:
-             st.success('''Streamlit中文公众号名称是：Streamlit, 公众号二维码如下''')
-             st.image("img1.png")
-         with c2:
-             st.success('''Streamlit中文交流群二维码如下''')
-             st.image("img2.png")
- 
-     elif choice =="登录":
-         st.sidebar.subheader("登录区域")
- 
-         username = st.sidebar.text_input("用户名")
-         password = st.sidebar.text_input("密码",type = "password")
-         if st.sidebar.checkbox("开始登录"):
-             create_usertable()
-             logged_user = login_user(username,password)
-             if logged_user:
- 
-                 st.session_state.count += 1
- 
-                 if st.session_state.count >= 1:
- 
-                     st.sidebar.success("您已登录成功，您的用户名是 {}".format(username))
- 
-                     st.title("成功登录后可以看到的内容{}".format(logged_user))
-                     st.balloons()
-                     st.markdown(logged_user)
-                     c1, c2 = st.columns(2)
-                     with c1:
-                         st.success('''Streamlit中文公众号名称是：Streamlit, 公众号二维码如下''')
-                         st.image("img1.png")
-                     with c2:
-                         st.success('''Streamlit中文交流群二维码如下''')
-                         st.image("img2.png")
- 
-             else:
-                 st.sidebar.warning('用户名或密码错误，请重新输入！')
-                 #st.sidebar.warning(data)
- 
-     elif choice =="注册":
-        st.subheader("注册")
-        new_user = st.sidebar.text_input("用户名")
-        new_password = st.sidebar.text_input("密码",type = "password")
-
-        if st.sidebar.button("注册"):
-            create_usertable()
-            add_userdata(new_user,new_password)
-
-     elif choice =="注销":
+    menu = ["首页","登录","注册", "注销"]
+    
+    if 'count' not in st.session_state:
         st.session_state.count = 0
-        if st.session_state.count == 0:
-            st.info("您已成功注销，如果需要，请选择左侧的登录按钮继续登录。")
+    
+    choice = st.sidebar.selectbox("选项",menu)
+    st.sidebar.markdown(
+    """
+    <style>
+    [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
+        width: 250px;
+    }
+    [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
+        width: 250px;
+        margin-left: -250px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,)
+    
+    if choice =="首页":
+        st.subheader("首页")
+        st.markdown('''Streamlit文档的地址是：https://docs.streamlit.io/''')
+        c1, c2 = st.columns(2)
+        with c1:
+            st.success('''Streamlit中文公众号名称是：Streamlit, 公众号二维码如下''')
+            st.image("img1.png")
+        with c2:
+            st.success('''Streamlit中文交流群二维码如下''')
+            st.image("img2.png")
+    
+    elif choice =="登录":
+        st.sidebar.subheader("登录区域")
+    
+        username = st.sidebar.text_input("用户名")
+        password = st.sidebar.text_input("密码",type = "password")
+        if st.sidebar.checkbox("开始登录"):
+            create_usertable()
+            logged_user = login_user(username,password)
+            if logged_user:
+    
+                st.session_state.count += 1
+    
+                if st.session_state.count >= 1:
+    
+                    st.sidebar.success("您已登录成功，您的用户名是 {}".format(username))
+    
+                    st.title("成功登录后可以看到的内容{}".format(logged_user))
+                    st.balloons()
+                    st.markdown(logged_user)
+                    c1, c2 = st.columns(2)
+                    with c1:
+                        st.success('''Streamlit中文公众号名称是：Streamlit, 公众号二维码如下''')
+                        st.image("img1.png")
+                    with c2:
+                        st.success('''Streamlit中文交流群二维码如下''')
+                        st.image("img2.png")
+    
+            else:
+                st.sidebar.warning('用户名或密码错误，请重新输入！')
+                #st.sidebar.warning(data)
+    
+    elif choice =="注册":
+       st.subheader("注册")
+       new_user = st.sidebar.text_input("用户名")
+       new_password = st.sidebar.text_input("密码",type = "password")
+    
+       if st.sidebar.button("注册"):
+           create_usertable()
+           add_userdata(new_user,new_password)
+    
+    elif choice =="注销":
+       st.session_state.count = 0
+       if st.session_state.count == 0:
+           st.info("您已成功注销，如果需要，请选择左侧的登录按钮继续登录。")
 
 # =============================================================================
 # 登录管理结束
